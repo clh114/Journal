@@ -19,9 +19,16 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.view.backgroundColor = [UIColor whiteColor];
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)herebt:(id)sender {
 }
 
 /*

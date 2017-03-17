@@ -21,6 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    self.usernameTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.passwordTextField.borderStyle = UITextBorderStyleRoundedRect;
 
 }
 

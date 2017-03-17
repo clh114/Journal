@@ -30,7 +30,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     BmobUser *user = [BmobUser currentUser];
     if (!user) {
-        NSLog(@"%@", user);
+        NSLog(@"未登录！");
         [AllUtils jumpToViewController:@"loginViewController" contextViewController:self handler:nil];
     }
 }

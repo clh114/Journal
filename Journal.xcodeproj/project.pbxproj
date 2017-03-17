@@ -22,6 +22,7 @@
 		47D2E3A41E6BB84B00EE57A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D2E3A21E6BB84B00EE57A7 /* LaunchScreen.storyboard */; };
 		47D2E3AF1E6BB84B00EE57A7 /* JournalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E3AE1E6BB84B00EE57A7 /* JournalTests.m */; };
 		47D2E3BA1E6BB84B00EE57A7 /* JournalUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E3B91E6BB84B00EE57A7 /* JournalUITests.m */; };
+		47E1926E1E7AC6AB003F5933 /* AddNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E1926D1E7AC6AB003F5933 /* AddNoteViewController.m */; };
 		8489FA2600CAB4B28CF5C99B /* libPods-Journal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CF3F0C01A1CA74A9D30CB0 /* libPods-Journal.a */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,8 @@
 		47D2E3B51E6BB84B00EE57A7 /* JournalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JournalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D2E3B91E6BB84B00EE57A7 /* JournalUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JournalUITests.m; sourceTree = "<group>"; };
 		47D2E3BB1E6BB84B00EE57A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47E1926C1E7AC6AB003F5933 /* AddNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNoteViewController.h; sourceTree = "<group>"; };
+		47E1926D1E7AC6AB003F5933 /* AddNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNoteViewController.m; sourceTree = "<group>"; };
 		53C9ED1E895591A490E94E3E /* Pods-Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Journal/Pods-Journal.debug.xcconfig"; sourceTree = "<group>"; };
 		79CF3F0C01A1CA74A9D30CB0 /* libPods-Journal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Journal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		906D5B5B50FA27CD0FC6E8FD /* Pods-Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Journal/Pods-Journal.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +124,8 @@
 				4753B1211E7927D50067FC04 /* NoteViewController.m */,
 				4753B1231E792E190067FC04 /* MyViewController.h */,
 				4753B1241E792E190067FC04 /* MyViewController.m */,
+				47E1926C1E7AC6AB003F5933 /* AddNoteViewController.h */,
+				47E1926D1E7AC6AB003F5933 /* AddNoteViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -141,6 +146,13 @@
 				473BA05B1E6EAE7D00AE2196 /* AllUtils.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		4781D6201E7B8B56009A5E12 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		47D2E3881E6BB84B00EE57A7 = {
@@ -168,6 +180,7 @@
 		47D2E3931E6BB84B00EE57A7 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
+				4781D6201E7B8B56009A5E12 /* Model */,
 				473BA0591E6EAE6500AE2196 /* Utils */,
 				471363031E6D529600E91C2A /* View */,
 				47130D971E6BE60400442FA4 /* ViewController */,
@@ -412,6 +425,7 @@
 			files = (
 				47AE87B01E7175ED001C206C /* ForgetPWViewController.m in Sources */,
 				47AE87AA1E7147E7001C206C /* RegisterViewController2.m in Sources */,
+				47E1926E1E7AC6AB003F5933 /* AddNoteViewController.m in Sources */,
 				47D2E39C1E6BB84B00EE57A7 /* LoginViewController.m in Sources */,
 				47D2E3991E6BB84B00EE57A7 /* AppDelegate.m in Sources */,
 				4753B1251E792E190067FC04 /* MyViewController.m in Sources */,
