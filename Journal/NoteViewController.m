@@ -7,6 +7,7 @@
 //
 
 #import "NoteViewController.h"
+#import "NoteDetailViewController.h"
 #import "Note.h"
 #import "BmobOperation.h"
 #import "AllUtils.h"
@@ -71,6 +72,10 @@
     return true;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     //左滑删除；
@@ -105,7 +110,22 @@
     // Pass the selected object to the new view controller.
 }
 */
-//查询笔记
+
+#pragma mark - 界面跳转传递数据
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([segue.identifier isEqualToString:@"NoteDetailSegue"]) {
+        
+        NoteDetailViewController *detail = (NoteDetailViewController*)segue.destinationViewController;
+        NSIndexPath *indePath = self.noteTableView.indexPathForSelectedRow;
+        detail.noteId = [[self.allNotesArray objectAtIndex:indePath.row] valueForKey:@"noteId"];
+//        detail.noteTitle = [[self.allNotesArray objectAtIndex:indePath.row] valueForKey:@"noteTitle"];
+        detail.noteText = [[self.allNotesArray objectAtIndex:indePath.row] valueForKey:@"noteText"];
+        detail.indexPath = indePath;
+    }
+}
+
+#pragma mark - 查询笔记
 - (void) queryNoteByUserId:(NSString*)tableName userId:(NSString*)userId limitCount:(int)limitCount{
 
     BmobQuery *queryNote = [BmobQuery queryWithClassName:tableName];

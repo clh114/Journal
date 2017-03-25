@@ -134,14 +134,14 @@
 				4753B11E1E7927300067FC04 /* HomeViewController.m */,
 				4753B1201E7927D50067FC04 /* NoteViewController.h */,
 				4753B1211E7927D50067FC04 /* NoteViewController.m */,
+				4780E7671E86451000B60AB2 /* NoteDetailViewController.h */,
+				4780E7681E86451000B60AB2 /* NoteDetailViewController.m */,
 				4753B1231E792E190067FC04 /* MyViewController.h */,
 				4753B1241E792E190067FC04 /* MyViewController.m */,
 				47E1926C1E7AC6AB003F5933 /* AddNoteViewController.h */,
 				47E1926D1E7AC6AB003F5933 /* AddNoteViewController.m */,
 				47FAA9561E7EB588002CDA59 /* WriteNoteViewController.h */,
 				47FAA9571E7EB588002CDA59 /* WriteNoteViewController.m */,
-				4780E7671E86451000B60AB2 /* NoteDetailViewController.h */,
-				4780E7681E86451000B60AB2 /* NoteDetailViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
