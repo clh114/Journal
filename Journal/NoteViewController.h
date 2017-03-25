@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NoteViewController : UIViewController
+@interface NoteViewController : UITableViewController
+
+@property(nonatomic,copy) NSString* tempTitle;
+@property(nonatomic,copy) NSString* tempText;
+@property(nonatomic,strong) NSIndexPath* tempIndexPath;
 
 @end

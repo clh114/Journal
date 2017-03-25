@@ -1,13 +1,13 @@
 //
-//  Constant.m
+//  Constant.h
 //  Journal
 //
 //  Created by cailihang on 20/03/2017.
 //  Copyright © 2017 cailihang. All rights reserved.
 //
 
-#import "Constant.h"
+#import <Foundation/Foundation.h>
 
-@implementation Constant
+@interface Constant : NSObject
 
 @end

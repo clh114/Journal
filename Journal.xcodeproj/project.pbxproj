@@ -12,6 +12,9 @@
 		4753B11F1E7927300067FC04 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4753B11E1E7927300067FC04 /* HomeViewController.m */; };
 		4753B1221E7927D50067FC04 /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4753B1211E7927D50067FC04 /* NoteViewController.m */; };
 		4753B1251E792E190067FC04 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4753B1241E792E190067FC04 /* MyViewController.m */; };
+		4780E7691E86451000B60AB2 /* NoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4780E7681E86451000B60AB2 /* NoteDetailViewController.m */; };
+		479040EB1E7F83A400D3B4BF /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 479040EA1E7F83A400D3B4BF /* Note.m */; };
+		479040EE1E7F844E00D3B4BF /* BmobOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 479040ED1E7F844E00D3B4BF /* BmobOperation.m */; };
 		47AE87AA1E7147E7001C206C /* RegisterViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 47AE87A91E7147E7001C206C /* RegisterViewController2.m */; };
 		47AE87B01E7175ED001C206C /* ForgetPWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47AE87AF1E7175ED001C206C /* ForgetPWViewController.m */; };
 		47D2E3961E6BB84B00EE57A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E3951E6BB84B00EE57A7 /* main.m */; };
@@ -23,6 +26,7 @@
 		47D2E3AF1E6BB84B00EE57A7 /* JournalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E3AE1E6BB84B00EE57A7 /* JournalTests.m */; };
 		47D2E3BA1E6BB84B00EE57A7 /* JournalUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E3B91E6BB84B00EE57A7 /* JournalUITests.m */; };
 		47E1926E1E7AC6AB003F5933 /* AddNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E1926D1E7AC6AB003F5933 /* AddNoteViewController.m */; };
+		47FAA9581E7EB588002CDA59 /* WriteNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FAA9571E7EB588002CDA59 /* WriteNoteViewController.m */; };
 		8489FA2600CAB4B28CF5C99B /* libPods-Journal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CF3F0C01A1CA74A9D30CB0 /* libPods-Journal.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +58,12 @@
 		4753B1211E7927D50067FC04 /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
 		4753B1231E792E190067FC04 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		4753B1241E792E190067FC04 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		4780E7671E86451000B60AB2 /* NoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDetailViewController.h; sourceTree = "<group>"; };
+		4780E7681E86451000B60AB2 /* NoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDetailViewController.m; sourceTree = "<group>"; };
+		479040E91E7F83A400D3B4BF /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
+		479040EA1E7F83A400D3B4BF /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
+		479040EC1E7F844E00D3B4BF /* BmobOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BmobOperation.h; sourceTree = "<group>"; };
+		479040ED1E7F844E00D3B4BF /* BmobOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BmobOperation.m; sourceTree = "<group>"; };
 		47AE87A81E7147E7001C206C /* RegisterViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController2.h; sourceTree = "<group>"; };
 		47AE87A91E7147E7001C206C /* RegisterViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController2.m; sourceTree = "<group>"; };
 		47AE87AE1E7175ED001C206C /* ForgetPWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPWViewController.h; sourceTree = "<group>"; };
@@ -76,6 +86,8 @@
 		47D2E3BB1E6BB84B00EE57A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47E1926C1E7AC6AB003F5933 /* AddNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNoteViewController.h; sourceTree = "<group>"; };
 		47E1926D1E7AC6AB003F5933 /* AddNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNoteViewController.m; sourceTree = "<group>"; };
+		47FAA9561E7EB588002CDA59 /* WriteNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteNoteViewController.h; sourceTree = "<group>"; };
+		47FAA9571E7EB588002CDA59 /* WriteNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteNoteViewController.m; sourceTree = "<group>"; };
 		53C9ED1E895591A490E94E3E /* Pods-Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Journal/Pods-Journal.debug.xcconfig"; sourceTree = "<group>"; };
 		79CF3F0C01A1CA74A9D30CB0 /* libPods-Journal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Journal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		906D5B5B50FA27CD0FC6E8FD /* Pods-Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Journal/Pods-Journal.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +138,10 @@
 				4753B1241E792E190067FC04 /* MyViewController.m */,
 				47E1926C1E7AC6AB003F5933 /* AddNoteViewController.h */,
 				47E1926D1E7AC6AB003F5933 /* AddNoteViewController.m */,
+				47FAA9561E7EB588002CDA59 /* WriteNoteViewController.h */,
+				47FAA9571E7EB588002CDA59 /* WriteNoteViewController.m */,
+				4780E7671E86451000B60AB2 /* NoteDetailViewController.h */,
+				4780E7681E86451000B60AB2 /* NoteDetailViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -151,6 +167,10 @@
 		4781D6201E7B8B56009A5E12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				479040E91E7F83A400D3B4BF /* Note.h */,
+				479040EA1E7F83A400D3B4BF /* Note.m */,
+				479040EC1E7F844E00D3B4BF /* BmobOperation.h */,
+				479040ED1E7F844E00D3B4BF /* BmobOperation.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -423,14 +443,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				479040EB1E7F83A400D3B4BF /* Note.m in Sources */,
 				47AE87B01E7175ED001C206C /* ForgetPWViewController.m in Sources */,
 				47AE87AA1E7147E7001C206C /* RegisterViewController2.m in Sources */,
+				479040EE1E7F844E00D3B4BF /* BmobOperation.m in Sources */,
 				47E1926E1E7AC6AB003F5933 /* AddNoteViewController.m in Sources */,
+				4780E7691E86451000B60AB2 /* NoteDetailViewController.m in Sources */,
 				47D2E39C1E6BB84B00EE57A7 /* LoginViewController.m in Sources */,
 				47D2E3991E6BB84B00EE57A7 /* AppDelegate.m in Sources */,
 				4753B1251E792E190067FC04 /* MyViewController.m in Sources */,
 				47130D9A1E6BE76F00442FA4 /* RegisterViewController.m in Sources */,
 				473BA05C1E6EAE7D00AE2196 /* AllUtils.m in Sources */,
+				47FAA9581E7EB588002CDA59 /* WriteNoteViewController.m in Sources */,
 				47D2E3961E6BB84B00EE57A7 /* main.m in Sources */,
 				4753B1221E7927D50067FC04 /* NoteViewController.m in Sources */,
 				4753B11F1E7927300067FC04 /* HomeViewController.m in Sources */,

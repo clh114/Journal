@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "WriteNoteViewController.h"
 #import "AllUtils.h"
 #import <BmobSDK/Bmob.h>
 
@@ -19,7 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.delegate = self;
+    self.tabBar.tintColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,6 +36,19 @@
         [AllUtils jumpToViewController:@"loginViewController" contextViewController:self handler:nil];
     }
 }
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    if (viewController.tabBarItem.tag == 1) {
+        NSLog(@"这是添加日记页面");
+        //要弹出导航VC，否则导航控制器比VC运行得晚，导航栏无法显示
+        [viewController.parentViewController presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"writeNoteVCNav"] animated:YES completion:nil];
+        return false;
+    } else {
+        return true;
+    }
+}
+
+
 /*
 #pragma mark - Navigation
 
