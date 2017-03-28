@@ -8,7 +8,9 @@
 
 #import "NoteDetailViewController.h"
 #import "HomeViewController.h"
+#import "NoteViewController.h"
 #import "BmobOperation.h"
+#import "AllUtils.h"
 
 @interface NoteDetailViewController ()
 - (IBAction)backBt:(id)sender;
@@ -58,21 +60,18 @@
         if (!error) {
             if (object) {
                 //设置cheatMode为YES
-                [object setObject:noteTitle forKey:@"noteTitle"];
-                [object setObject:noteText forKey:@"noteText"];
+//                [object setObject:noteTitle forKey:@"noteTitle"];
+                [object setObject:noteText forKey:@"text"];
                 //异步更新数据
                 [object updateInBackground];
+                NSLog(@"更新成功！");
+                [AllUtils jumpToViewController:@"homeViewController" contextViewController:self handler:nil];
             }
         }else{
-            //进行错误处理
+            NSLog(@"%@", [error description]);
+            [AllUtils showPromptDialog:@"提示" andMessage:@"网络异常,保存失败" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
         }
     }];
-//    //使用显式界面跳转,因为需要执行MainViewController的viewDidLoad()方法；
-//    MainViewController *mainViewController = [[MainViewController alloc] init];
-//    mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
-//    mainViewController.tempIndexPath = self.indexPath;
-//    mainViewController.tempTitle = self.noteTitleTextField.text;
-//    mainViewController.tempText = self.noteTextTextView.text;
-//    [self presentViewController:mainViewController animated:true completion:nil];
-}
+    }
+
 @end

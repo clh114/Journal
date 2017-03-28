@@ -27,19 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    BmobUser *user = [BmobUser currentUser];
-    NSString *userId = user.objectId;
-    NSLog(@"当前用户：%@", userId);
-    
-    [self queryNoteByUserId:NOTE_TABLE userId:userId limitCount:50];
-    
+
+    [self queryNoteByUserId:NOTE_TABLE limitCount:50];
 }
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -96,27 +86,17 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     return 100;
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - 界面跳转传递数据
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     if ([segue.identifier isEqualToString:@"NoteDetailSegue"]) {
-        
-        NoteDetailViewController *detail = (NoteDetailViewController*)segue.destinationViewController;
+        //因为NoteDetailViewController是镶嵌在一个NavgationContoller里面，所以应该是跳转到导航控制器而不是NoteDetailViewController
+        UINavigationController *navController = [segue destinationViewController];
+        NoteDetailViewController *detail = (NoteDetailViewController *)navController.topViewController;
         NSIndexPath *indePath = self.noteTableView.indexPathForSelectedRow;
         detail.noteId = [[self.allNotesArray objectAtIndex:indePath.row] valueForKey:@"noteId"];
 //        detail.noteTitle = [[self.allNotesArray objectAtIndex:indePath.row] valueForKey:@"noteTitle"];
@@ -126,8 +106,11 @@
 }
 
 #pragma mark - 查询笔记
-- (void) queryNoteByUserId:(NSString*)tableName userId:(NSString*)userId limitCount:(int)limitCount{
+- (void) queryNoteByUserId:(NSString*)tableName limitCount:(int)limitCount{
 
+    BmobUser *user = [BmobUser currentUser];
+    NSString *userId = user.objectId;
+    NSLog(@"当前用户：%@", userId);
     BmobQuery *queryNote = [BmobQuery queryWithClassName:tableName];
     [queryNote orderByDescending:@"updatedAt"];
     queryNote.limit = limitCount;
@@ -161,13 +144,14 @@
         }//else();
         NSLog(@"笔记数组的count = %lu",(unsigned long)[self.allNotesArray count]);
         //解决TableView不能滚到最下面的bug；注意如何设置TableView的长度；
-        if (100 * [self.allNotesArray count] < [UIScreen mainScreen].bounds.size.height) {
-            
-            self.noteTableView.frame = CGRectMake(self.noteTableView.frame.origin.x, self.noteTableView.frame.origin.y, self.noteTableView.frame.size.width, 100 * [self.allNotesArray count]);
-        }else{
-            
-            self.noteTableView.frame = CGRectMake(self.noteTableView.frame.origin.x, self.noteTableView.frame.origin.y, self.noteTableView.frame.size.width, [UIScreen mainScreen].bounds.size.height - 65);
-        }
+        //会导致新的cell变黑
+//        if (100 * [self.allNotesArray count] < [UIScreen mainScreen].bounds.size.height) {
+//            
+//            self.noteTableView.frame = CGRectMake(self.noteTableView.frame.origin.x, self.noteTableView.frame.origin.y, self.noteTableView.frame.size.width, 100 * [self.allNotesArray count]);
+//        }else{
+//            
+//            self.noteTableView.frame = CGRectMake(self.noteTableView.frame.origin.x, self.noteTableView.frame.origin.y, self.noteTableView.frame.size.width, [UIScreen mainScreen].bounds.size.height - 65);
+//        }
         [self.noteTableView reloadData];
     }];
 

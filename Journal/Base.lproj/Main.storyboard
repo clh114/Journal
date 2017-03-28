@@ -219,7 +219,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Vnt-Gs-RU6" kind="presentation" id="81F-vb-MWI"/>
+                                    <segue destination="Vnt-Gs-RU6" kind="presentation" identifier="NoteDetailSegue" id="81F-vb-MWI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -240,7 +240,7 @@
         <!--Note Detail View Controller-->
         <scene sceneID="ASv-9w-teQ">
             <objects>
-                <viewController storyboardIdentifier="noteDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j8s-Tr-0zC" customClass="NoteDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="noteDetailViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j8s-Tr-0zC" customClass="NoteDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S3z-ZI-EGs"/>
                         <viewControllerLayoutGuide type="bottom" id="Gbe-lz-SuV"/>
@@ -553,6 +553,7 @@
         <!--noteVCNav-->
         <scene sceneID="Ze3-iQ-Zud">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="di8-Nr-L7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="noteVCNav" title="noteVCNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="r9U-G7-q0p" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="list" id="Tmq-xa-rbg">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
@@ -567,7 +568,6 @@
                         <segue destination="fjy-Ot-bpx" kind="relationship" relationship="rootViewController" id="abg-Uj-o35"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="di8-Nr-L7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-415" y="678"/>
         </scene>
