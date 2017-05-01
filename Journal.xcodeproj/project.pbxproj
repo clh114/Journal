@@ -7,16 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		470332DE1E8CEF4400542631 /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470332DD1E8CEF4400542631 /* SettingTableViewController.m */; };
 		47130D9A1E6BE76F00442FA4 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47130D991E6BE76F00442FA4 /* RegisterViewController.m */; };
 		473BA05C1E6EAE7D00AE2196 /* AllUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 473BA05B1E6EAE7D00AE2196 /* AllUtils.m */; };
 		4753B11F1E7927300067FC04 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4753B11E1E7927300067FC04 /* HomeViewController.m */; };
 		4753B1221E7927D50067FC04 /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4753B1211E7927D50067FC04 /* NoteViewController.m */; };
-		4753B1251E792E190067FC04 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4753B1241E792E190067FC04 /* MyViewController.m */; };
+		4766DF5A1E90F7C2000DF343 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4766DF591E90F7C2000DF343 /* UserInfoViewController.m */; };
 		4780E7691E86451000B60AB2 /* NoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4780E7681E86451000B60AB2 /* NoteDetailViewController.m */; };
+		4787E5281EAF9EC200421E84 /* CommunityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4787E5271EAF9EC200421E84 /* CommunityTableViewController.m */; };
+		4787E52B1EB4B59800421E84 /* SharedNoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4787E52A1EB4B59800421E84 /* SharedNoteDetailViewController.m */; };
+		47886EC61EA3A4C2008AD1A3 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47886EC51EA3A4C2008AD1A3 /* LocalAuthentication.framework */; };
 		479040EB1E7F83A400D3B4BF /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 479040EA1E7F83A400D3B4BF /* Note.m */; };
 		479040EE1E7F844E00D3B4BF /* BmobOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 479040ED1E7F844E00D3B4BF /* BmobOperation.m */; };
 		47AE87AA1E7147E7001C206C /* RegisterViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 47AE87A91E7147E7001C206C /* RegisterViewController2.m */; };
 		47AE87B01E7175ED001C206C /* ForgetPWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47AE87AF1E7175ED001C206C /* ForgetPWViewController.m */; };
+		47BFB0141EB6119300211FB7 /* LockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BFB0131EB6119300211FB7 /* LockViewController.m */; };
+		47BFB01A1EB771CA00211FB7 /* TouchIDValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BFB0191EB771CA00211FB7 /* TouchIDValidate.m */; };
 		47D2E3961E6BB84B00EE57A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E3951E6BB84B00EE57A7 /* main.m */; };
 		47D2E3991E6BB84B00EE57A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E3981E6BB84B00EE57A7 /* AppDelegate.m */; };
 		47D2E39C1E6BB84B00EE57A7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E39B1E6BB84B00EE57A7 /* LoginViewController.m */; };
@@ -26,6 +32,7 @@
 		47D2E3AF1E6BB84B00EE57A7 /* JournalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E3AE1E6BB84B00EE57A7 /* JournalTests.m */; };
 		47D2E3BA1E6BB84B00EE57A7 /* JournalUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E3B91E6BB84B00EE57A7 /* JournalUITests.m */; };
 		47E1926E1E7AC6AB003F5933 /* AddNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E1926D1E7AC6AB003F5933 /* AddNoteViewController.m */; };
+		47E767A61E9685E700050056 /* TouchIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E767A51E9685E700050056 /* TouchIDViewController.m */; };
 		47FAA9581E7EB588002CDA59 /* WriteNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FAA9571E7EB588002CDA59 /* WriteNoteViewController.m */; };
 		8489FA2600CAB4B28CF5C99B /* libPods-Journal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CF3F0C01A1CA74A9D30CB0 /* libPods-Journal.a */; };
 /* End PBXBuildFile section */
@@ -48,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		470332DC1E8CEF4400542631 /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
+		470332DD1E8CEF4400542631 /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		47130D981E6BE76F00442FA4 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		47130D991E6BE76F00442FA4 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		473BA05A1E6EAE7D00AE2196 /* AllUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllUtils.h; sourceTree = "<group>"; };
@@ -56,10 +65,15 @@
 		4753B11E1E7927300067FC04 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		4753B1201E7927D50067FC04 /* NoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewController.h; sourceTree = "<group>"; };
 		4753B1211E7927D50067FC04 /* NoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewController.m; sourceTree = "<group>"; };
-		4753B1231E792E190067FC04 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
-		4753B1241E792E190067FC04 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		4766DF581E90F7C2000DF343 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		4766DF591E90F7C2000DF343 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		4780E7671E86451000B60AB2 /* NoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDetailViewController.h; sourceTree = "<group>"; };
 		4780E7681E86451000B60AB2 /* NoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDetailViewController.m; sourceTree = "<group>"; };
+		4787E5261EAF9EC200421E84 /* CommunityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityTableViewController.h; sourceTree = "<group>"; };
+		4787E5271EAF9EC200421E84 /* CommunityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityTableViewController.m; sourceTree = "<group>"; };
+		4787E5291EB4B59800421E84 /* SharedNoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedNoteDetailViewController.h; sourceTree = "<group>"; };
+		4787E52A1EB4B59800421E84 /* SharedNoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedNoteDetailViewController.m; sourceTree = "<group>"; };
+		47886EC51EA3A4C2008AD1A3 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		479040E91E7F83A400D3B4BF /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		479040EA1E7F83A400D3B4BF /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		479040EC1E7F844E00D3B4BF /* BmobOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BmobOperation.h; sourceTree = "<group>"; };
@@ -68,6 +82,10 @@
 		47AE87A91E7147E7001C206C /* RegisterViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController2.m; sourceTree = "<group>"; };
 		47AE87AE1E7175ED001C206C /* ForgetPWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPWViewController.h; sourceTree = "<group>"; };
 		47AE87AF1E7175ED001C206C /* ForgetPWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPWViewController.m; sourceTree = "<group>"; };
+		47BFB0121EB6119300211FB7 /* LockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockViewController.h; sourceTree = "<group>"; };
+		47BFB0131EB6119300211FB7 /* LockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockViewController.m; sourceTree = "<group>"; };
+		47BFB0181EB771CA00211FB7 /* TouchIDValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchIDValidate.h; sourceTree = "<group>"; };
+		47BFB0191EB771CA00211FB7 /* TouchIDValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchIDValidate.m; sourceTree = "<group>"; };
 		47D2E3911E6BB84B00EE57A7 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D2E3951E6BB84B00EE57A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		47D2E3971E6BB84B00EE57A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +104,8 @@
 		47D2E3BB1E6BB84B00EE57A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47E1926C1E7AC6AB003F5933 /* AddNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNoteViewController.h; sourceTree = "<group>"; };
 		47E1926D1E7AC6AB003F5933 /* AddNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNoteViewController.m; sourceTree = "<group>"; };
+		47E767A41E9685E700050056 /* TouchIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchIDViewController.h; sourceTree = "<group>"; };
+		47E767A51E9685E700050056 /* TouchIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchIDViewController.m; sourceTree = "<group>"; };
 		47FAA9561E7EB588002CDA59 /* WriteNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteNoteViewController.h; sourceTree = "<group>"; };
 		47FAA9571E7EB588002CDA59 /* WriteNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteNoteViewController.m; sourceTree = "<group>"; };
 		53C9ED1E895591A490E94E3E /* Pods-Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Journal/Pods-Journal.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47886EC61EA3A4C2008AD1A3 /* LocalAuthentication.framework in Frameworks */,
 				8489FA2600CAB4B28CF5C99B /* libPods-Journal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,12 +157,22 @@
 				4753B1211E7927D50067FC04 /* NoteViewController.m */,
 				4780E7671E86451000B60AB2 /* NoteDetailViewController.h */,
 				4780E7681E86451000B60AB2 /* NoteDetailViewController.m */,
-				4753B1231E792E190067FC04 /* MyViewController.h */,
-				4753B1241E792E190067FC04 /* MyViewController.m */,
 				47E1926C1E7AC6AB003F5933 /* AddNoteViewController.h */,
 				47E1926D1E7AC6AB003F5933 /* AddNoteViewController.m */,
 				47FAA9561E7EB588002CDA59 /* WriteNoteViewController.h */,
 				47FAA9571E7EB588002CDA59 /* WriteNoteViewController.m */,
+				470332DC1E8CEF4400542631 /* SettingTableViewController.h */,
+				470332DD1E8CEF4400542631 /* SettingTableViewController.m */,
+				4766DF581E90F7C2000DF343 /* UserInfoViewController.h */,
+				4766DF591E90F7C2000DF343 /* UserInfoViewController.m */,
+				47E767A41E9685E700050056 /* TouchIDViewController.h */,
+				47E767A51E9685E700050056 /* TouchIDViewController.m */,
+				4787E5261EAF9EC200421E84 /* CommunityTableViewController.h */,
+				4787E5271EAF9EC200421E84 /* CommunityTableViewController.m */,
+				4787E5291EB4B59800421E84 /* SharedNoteDetailViewController.h */,
+				4787E52A1EB4B59800421E84 /* SharedNoteDetailViewController.m */,
+				47BFB0121EB6119300211FB7 /* LockViewController.h */,
+				47BFB0131EB6119300211FB7 /* LockViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -171,6 +202,8 @@
 				479040EA1E7F83A400D3B4BF /* Note.m */,
 				479040EC1E7F844E00D3B4BF /* BmobOperation.h */,
 				479040ED1E7F844E00D3B4BF /* BmobOperation.m */,
+				47BFB0181EB771CA00211FB7 /* TouchIDValidate.h */,
+				47BFB0191EB771CA00211FB7 /* TouchIDValidate.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -251,6 +284,7 @@
 		9A80E3A84FF37FE713803227 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				47886EC51EA3A4C2008AD1A3 /* LocalAuthentication.framework */,
 				79CF3F0C01A1CA74A9D30CB0 /* libPods-Journal.a */,
 			);
 			name = Frameworks;
@@ -446,18 +480,24 @@
 				479040EB1E7F83A400D3B4BF /* Note.m in Sources */,
 				47AE87B01E7175ED001C206C /* ForgetPWViewController.m in Sources */,
 				47AE87AA1E7147E7001C206C /* RegisterViewController2.m in Sources */,
+				4766DF5A1E90F7C2000DF343 /* UserInfoViewController.m in Sources */,
 				479040EE1E7F844E00D3B4BF /* BmobOperation.m in Sources */,
 				47E1926E1E7AC6AB003F5933 /* AddNoteViewController.m in Sources */,
 				4780E7691E86451000B60AB2 /* NoteDetailViewController.m in Sources */,
 				47D2E39C1E6BB84B00EE57A7 /* LoginViewController.m in Sources */,
+				4787E52B1EB4B59800421E84 /* SharedNoteDetailViewController.m in Sources */,
 				47D2E3991E6BB84B00EE57A7 /* AppDelegate.m in Sources */,
-				4753B1251E792E190067FC04 /* MyViewController.m in Sources */,
+				47BFB01A1EB771CA00211FB7 /* TouchIDValidate.m in Sources */,
 				47130D9A1E6BE76F00442FA4 /* RegisterViewController.m in Sources */,
 				473BA05C1E6EAE7D00AE2196 /* AllUtils.m in Sources */,
 				47FAA9581E7EB588002CDA59 /* WriteNoteViewController.m in Sources */,
+				470332DE1E8CEF4400542631 /* SettingTableViewController.m in Sources */,
+				4787E5281EAF9EC200421E84 /* CommunityTableViewController.m in Sources */,
 				47D2E3961E6BB84B00EE57A7 /* main.m in Sources */,
+				47E767A61E9685E700050056 /* TouchIDViewController.m in Sources */,
 				4753B1221E7927D50067FC04 /* NoteViewController.m in Sources */,
 				4753B11F1E7927300067FC04 /* HomeViewController.m in Sources */,
+				47BFB0141EB6119300211FB7 /* LockViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +645,7 @@
 			baseConfigurationReference = 53C9ED1E895591A490E94E3E /* Pods-Journal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CP7G558BQ8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -614,6 +655,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CLH.Journal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -622,6 +664,7 @@
 			baseConfigurationReference = 906D5B5B50FA27CD0FC6E8FD /* Pods-Journal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CP7G558BQ8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -631,6 +674,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CLH.Journal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

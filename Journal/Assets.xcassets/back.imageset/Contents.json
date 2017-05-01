@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "iphone",
-      "filename" : "Background.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "Background@2x.jpg",
+      "filename" : "back_button@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "Background@3x.jpg",
       "scale" : "3x"
     }
   ],

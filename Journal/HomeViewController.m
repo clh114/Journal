@@ -7,9 +7,11 @@
 //
 
 #import "HomeViewController.h"
+#import "LockViewController.h"
 #import "WriteNoteViewController.h"
 #import "AllUtils.h"
 #import <BmobSDK/Bmob.h>
+#import <LocalAuthentication/LocalAuthentication.h>
 
 @interface HomeViewController ()
 
@@ -22,6 +24,12 @@
     // Do any additional setup after loading the view.
     self.delegate = self;
     self.tabBar.tintColor = [UIColor whiteColor];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpToViewController:) name:@"presentLockViewController" object:nil];
+}
+
+- (void)jumpToViewController:(NSNotification *)notification {
+    LockViewController *lockViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"lockViewController"];
+    [self presentViewController:lockViewController animated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,15 +56,38 @@
     }
 }
 
+- (void)touchIDValidate {
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    //创建LAContext
+    LAContext* context = [[LAContext alloc] init];
+    NSError* error = nil;
+    NSString* result = @"请验证已有指纹";
+    
+    //首先使用canEvaluatePolicy 判断设备支持状态
+    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+        //支持指纹验证
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:result reply:^(BOOL success, NSError *error) {
+            if (success) {
+                //验证成功，主线程处理UI
+            }
+            else
+            {
+//                //在主线程改变SWITCH状态
+//                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//                    [switchButton setOn:NO];
+//                }];
+                NSLog(@"%@",error.localizedDescription);
+                
+            }
+        }];
+    }
+    else
+    {
+        //不支持指纹识别，LOG出错误详情
+        NSLog(@"不支持指纹识别");
+        NSLog(@"%@",error.localizedDescription);
+    }
+    
 }
-*/
 
 @end

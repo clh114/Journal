@@ -21,6 +21,33 @@
 
 @implementation NoteDetailViewController
 
+- (IBAction)share:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"匿名分享" message:@"是否将这篇日记匿名分享到社区？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *yes_action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        BmobQuery   *bquery = [BmobQuery queryWithClassName:NOTE_TABLE];
+        [bquery getObjectInBackgroundWithId:self.noteId block:^(BmobObject *object,NSError *error){
+            if (!error) {
+                if (object) {
+                    [object setObject:[NSNumber numberWithBool:YES] forKey:@"isShare"];
+                    //异步更新数据
+                    [object updateInBackground];
+                    NSLog(@"更新成功！");
+                    [AllUtils showPromptDialog:@"提示" andMessage:@"分享成功！" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
+                }
+            }else{
+                NSLog(@"%@", [error description]);
+                [AllUtils showPromptDialog:@"提示" andMessage:@"网络异常,分享失败" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
+            }
+        }];
+    }];
+    UIAlertAction *no_action = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+    
+    [alert addAction:yes_action];
+    [alert addAction:no_action];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -34,33 +61,29 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)backBt:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)saveBt:(id)sender {
-    //使用显式界面跳转,因为需要执行MainViewController的viewDidLoad()方法；
-    [self updateBmobObject:NOTE_TABLE noteId:self.noteId noteTitle:@"" noteText:self.noteTextTextView.text];
+    [self updateBmobObject:NOTE_TABLE noteId:self.noteId noteText:self.noteTextTextView.text];
 }
 
 #pragma mark - 修改笔记
--(void)updateBmobObject:(NSString*)tableName  noteId:(NSString*)noteId noteTitle:(NSString*)noteTitle noteText:(NSString*)noteText{
-    //查找GameScore表
+-(void)updateBmobObject:(NSString*)tableName  noteId:(NSString*)noteId noteText:(NSString*)noteText{
     BmobQuery   *bquery = [BmobQuery queryWithClassName:tableName];
     [bquery getObjectInBackgroundWithId:noteId block:^(BmobObject *object,NSError *error){
         if (!error) {
             if (object) {
-                //设置cheatMode为YES
-//                [object setObject:noteTitle forKey:@"noteTitle"];
                 [object setObject:noteText forKey:@"text"];
                 //异步更新数据
                 [object updateInBackground];
@@ -72,6 +95,6 @@
             [AllUtils showPromptDialog:@"提示" andMessage:@"网络异常,保存失败" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
         }
     }];
-    }
+}
 
 @end
