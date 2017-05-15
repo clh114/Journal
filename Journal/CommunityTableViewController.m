@@ -9,7 +9,6 @@
 #import "CommunityTableViewController.h"
 #import "SharedNoteDetailViewController.h"
 #import "Note.h"
-#import "BmobOperation.h"
 #import "AllUtils.h"
 #import <MJRefresh.h>
 
@@ -24,16 +23,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
-    [self qureyByisShare:NOTE_TABLE limitCount:100];
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self qureyByisShare:NOTE_TABLE limitCount:100];
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView reloadData];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        //异步查询
+        dispatch_async(queue, ^{
+            self.allNoteArray = [Note querySharedNotesInTable:NOTE_TABLE withLimitCont:1000];
+            NSLog(@"笔记数组的count = %lu",(unsigned long)[self.allNoteArray count]);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.tableView.mj_header endRefreshing];
+                [self.tableView reloadData];
+                
+            });
+        });
     }];
     [header beginRefreshing];
     self.tableView.mj_header = header;
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,43 +70,6 @@
 }
 
 
-
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
@@ -113,41 +84,6 @@
     }
 }
 
-#pragma mark - 查询笔记
-- (void)qureyByisShare:(NSString *)tableName limitCount:(int)limitCount{
-    BmobQuery *queryNote = [BmobQuery queryWithClassName:tableName];
-    queryNote.cachePolicy = kBmobCachePolicyCacheThenNetwork;
-    [queryNote whereKey:@"isShare" equalTo:[NSNumber numberWithBool:YES]];
-    [queryNote orderByDescending:@"updatedAt"];
-    queryNote.limit = limitCount;
-    [queryNote findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        if (error) {
-            NSLog(@"查询笔记错误");
-        } else {
-            NSLog(@"正在查询笔记。。。");
-            self.allNoteArray = [[NSMutableArray alloc]init];
-            for (BmobObject *obj in array) {
-                Note *note = [[Note alloc] init];
-                note.noteId = [obj objectForKey:@"objectId"];
-                note.noteText = [obj objectForKey:@"text"];
-                note.noteCreatedAt = [AllUtils getDateFromString:[obj objectForKey:@"createdAt"]];
-                [self.allNoteArray addObject:note];
-            }
-            
-            if (self.tempText != nil && self.tempIndexPath != nil) {
-                [[self.allNoteArray objectAtIndex:self.tempIndexPath.row] setValue:self.tempText forKey:@"noteText"];
-                for (int i = (int)self.tempIndexPath.row ; i >= 1; i--) {
-                    
-                    [self.allNoteArray exchangeObjectAtIndex:i withObjectAtIndex:i-1];
-                }
-            }
-        }
-        NSLog(@"笔记数组的count = %lu",(unsigned long)[self.allNoteArray count]);
-        
-        [self.noteView reloadData];
-    }];
-    
-}
 #pragma mark - 懒加载显示笔记内容
 - (NSMutableArray *)allNoteArray{
     Note *note = [[Note alloc] init];

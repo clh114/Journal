@@ -18,11 +18,14 @@
 		4787E52B1EB4B59800421E84 /* SharedNoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4787E52A1EB4B59800421E84 /* SharedNoteDetailViewController.m */; };
 		47886EC61EA3A4C2008AD1A3 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47886EC51EA3A4C2008AD1A3 /* LocalAuthentication.framework */; };
 		479040EB1E7F83A400D3B4BF /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 479040EA1E7F83A400D3B4BF /* Note.m */; };
-		479040EE1E7F844E00D3B4BF /* BmobOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 479040ED1E7F844E00D3B4BF /* BmobOperation.m */; };
 		47AE87AA1E7147E7001C206C /* RegisterViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 47AE87A91E7147E7001C206C /* RegisterViewController2.m */; };
 		47AE87B01E7175ED001C206C /* ForgetPWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47AE87AF1E7175ED001C206C /* ForgetPWViewController.m */; };
+		47B8D3C81EC7F4AD003D3860 /* RegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B8D3C71EC7F4AD003D3860 /* RegisterModel.m */; };
+		47B8D3CB1EC7FC13003D3860 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B8D3CA1EC7FC13003D3860 /* LoginModel.m */; };
+		47B8D3CE1EC7FD03003D3860 /* ForgetPassWordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B8D3CD1EC7FD03003D3860 /* ForgetPassWordModel.m */; };
+		47B8D3D11EC8AC3F003D3860 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B8D3D01EC8AC3F003D3860 /* UserInfoModel.m */; };
+		47B8D3D41EC8B4AA003D3860 /* TouchIDValidateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B8D3D31EC8B4AA003D3860 /* TouchIDValidateModel.m */; };
 		47BFB0141EB6119300211FB7 /* LockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BFB0131EB6119300211FB7 /* LockViewController.m */; };
-		47BFB01A1EB771CA00211FB7 /* TouchIDValidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BFB0191EB771CA00211FB7 /* TouchIDValidate.m */; };
 		47D2E3961E6BB84B00EE57A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E3951E6BB84B00EE57A7 /* main.m */; };
 		47D2E3991E6BB84B00EE57A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E3981E6BB84B00EE57A7 /* AppDelegate.m */; };
 		47D2E39C1E6BB84B00EE57A7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47D2E39B1E6BB84B00EE57A7 /* LoginViewController.m */; };
@@ -34,6 +37,8 @@
 		47E1926E1E7AC6AB003F5933 /* AddNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E1926D1E7AC6AB003F5933 /* AddNoteViewController.m */; };
 		47E767A61E9685E700050056 /* TouchIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E767A51E9685E700050056 /* TouchIDViewController.m */; };
 		47FAA9581E7EB588002CDA59 /* WriteNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FAA9571E7EB588002CDA59 /* WriteNoteViewController.m */; };
+		47FD0A501EBD5F9900CAED55 /* MyBookMarksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FD0A4F1EBD5F9900CAED55 /* MyBookMarksTableViewController.m */; };
+		47FD0A531EBE078100CAED55 /* BookMarkNoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FD0A521EBE078100CAED55 /* BookMarkNoteDetailViewController.m */; };
 		8489FA2600CAB4B28CF5C99B /* libPods-Journal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CF3F0C01A1CA74A9D30CB0 /* libPods-Journal.a */; };
 /* End PBXBuildFile section */
 
@@ -76,16 +81,22 @@
 		47886EC51EA3A4C2008AD1A3 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		479040E91E7F83A400D3B4BF /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
 		479040EA1E7F83A400D3B4BF /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
-		479040EC1E7F844E00D3B4BF /* BmobOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BmobOperation.h; sourceTree = "<group>"; };
-		479040ED1E7F844E00D3B4BF /* BmobOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BmobOperation.m; sourceTree = "<group>"; };
 		47AE87A81E7147E7001C206C /* RegisterViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController2.h; sourceTree = "<group>"; };
 		47AE87A91E7147E7001C206C /* RegisterViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController2.m; sourceTree = "<group>"; };
 		47AE87AE1E7175ED001C206C /* ForgetPWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPWViewController.h; sourceTree = "<group>"; };
 		47AE87AF1E7175ED001C206C /* ForgetPWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPWViewController.m; sourceTree = "<group>"; };
+		47B8D3C61EC7F4AD003D3860 /* RegisterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterModel.h; sourceTree = "<group>"; };
+		47B8D3C71EC7F4AD003D3860 /* RegisterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterModel.m; sourceTree = "<group>"; };
+		47B8D3C91EC7FC13003D3860 /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginModel.h; sourceTree = "<group>"; };
+		47B8D3CA1EC7FC13003D3860 /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginModel.m; sourceTree = "<group>"; };
+		47B8D3CC1EC7FD03003D3860 /* ForgetPassWordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassWordModel.h; sourceTree = "<group>"; };
+		47B8D3CD1EC7FD03003D3860 /* ForgetPassWordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassWordModel.m; sourceTree = "<group>"; };
+		47B8D3CF1EC8AC3F003D3860 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		47B8D3D01EC8AC3F003D3860 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
+		47B8D3D21EC8B4AA003D3860 /* TouchIDValidateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchIDValidateModel.h; sourceTree = "<group>"; };
+		47B8D3D31EC8B4AA003D3860 /* TouchIDValidateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchIDValidateModel.m; sourceTree = "<group>"; };
 		47BFB0121EB6119300211FB7 /* LockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockViewController.h; sourceTree = "<group>"; };
 		47BFB0131EB6119300211FB7 /* LockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockViewController.m; sourceTree = "<group>"; };
-		47BFB0181EB771CA00211FB7 /* TouchIDValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchIDValidate.h; sourceTree = "<group>"; };
-		47BFB0191EB771CA00211FB7 /* TouchIDValidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchIDValidate.m; sourceTree = "<group>"; };
 		47D2E3911E6BB84B00EE57A7 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D2E3951E6BB84B00EE57A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		47D2E3971E6BB84B00EE57A7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +119,10 @@
 		47E767A51E9685E700050056 /* TouchIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchIDViewController.m; sourceTree = "<group>"; };
 		47FAA9561E7EB588002CDA59 /* WriteNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteNoteViewController.h; sourceTree = "<group>"; };
 		47FAA9571E7EB588002CDA59 /* WriteNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteNoteViewController.m; sourceTree = "<group>"; };
+		47FD0A4E1EBD5F9900CAED55 /* MyBookMarksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBookMarksTableViewController.h; sourceTree = "<group>"; };
+		47FD0A4F1EBD5F9900CAED55 /* MyBookMarksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBookMarksTableViewController.m; sourceTree = "<group>"; };
+		47FD0A511EBE078100CAED55 /* BookMarkNoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookMarkNoteDetailViewController.h; sourceTree = "<group>"; };
+		47FD0A521EBE078100CAED55 /* BookMarkNoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookMarkNoteDetailViewController.m; sourceTree = "<group>"; };
 		53C9ED1E895591A490E94E3E /* Pods-Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Journal/Pods-Journal.debug.xcconfig"; sourceTree = "<group>"; };
 		79CF3F0C01A1CA74A9D30CB0 /* libPods-Journal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Journal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		906D5B5B50FA27CD0FC6E8FD /* Pods-Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Journal/Pods-Journal.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +188,10 @@
 				4787E52A1EB4B59800421E84 /* SharedNoteDetailViewController.m */,
 				47BFB0121EB6119300211FB7 /* LockViewController.h */,
 				47BFB0131EB6119300211FB7 /* LockViewController.m */,
+				47FD0A4E1EBD5F9900CAED55 /* MyBookMarksTableViewController.h */,
+				47FD0A4F1EBD5F9900CAED55 /* MyBookMarksTableViewController.m */,
+				47FD0A511EBE078100CAED55 /* BookMarkNoteDetailViewController.h */,
+				47FD0A521EBE078100CAED55 /* BookMarkNoteDetailViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -186,24 +205,23 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		473BA0591E6EAE6500AE2196 /* Utils */ = {
+		4781D6201E7B8B56009A5E12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				473BA05A1E6EAE7D00AE2196 /* AllUtils.h */,
 				473BA05B1E6EAE7D00AE2196 /* AllUtils.m */,
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
-		4781D6201E7B8B56009A5E12 /* Model */ = {
-			isa = PBXGroup;
-			children = (
 				479040E91E7F83A400D3B4BF /* Note.h */,
 				479040EA1E7F83A400D3B4BF /* Note.m */,
-				479040EC1E7F844E00D3B4BF /* BmobOperation.h */,
-				479040ED1E7F844E00D3B4BF /* BmobOperation.m */,
-				47BFB0181EB771CA00211FB7 /* TouchIDValidate.h */,
-				47BFB0191EB771CA00211FB7 /* TouchIDValidate.m */,
+				47B8D3C61EC7F4AD003D3860 /* RegisterModel.h */,
+				47B8D3C71EC7F4AD003D3860 /* RegisterModel.m */,
+				47B8D3C91EC7FC13003D3860 /* LoginModel.h */,
+				47B8D3CA1EC7FC13003D3860 /* LoginModel.m */,
+				47B8D3CC1EC7FD03003D3860 /* ForgetPassWordModel.h */,
+				47B8D3CD1EC7FD03003D3860 /* ForgetPassWordModel.m */,
+				47B8D3CF1EC8AC3F003D3860 /* UserInfoModel.h */,
+				47B8D3D01EC8AC3F003D3860 /* UserInfoModel.m */,
+				47B8D3D21EC8B4AA003D3860 /* TouchIDValidateModel.h */,
+				47B8D3D31EC8B4AA003D3860 /* TouchIDValidateModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -234,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				4781D6201E7B8B56009A5E12 /* Model */,
-				473BA0591E6EAE6500AE2196 /* Utils */,
 				471363031E6D529600E91C2A /* View */,
 				47130D971E6BE60400442FA4 /* ViewController */,
 				47D2E3941E6BB84B00EE57A7 /* Supporting Files */,
@@ -478,26 +495,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				479040EB1E7F83A400D3B4BF /* Note.m in Sources */,
+				47B8D3D11EC8AC3F003D3860 /* UserInfoModel.m in Sources */,
 				47AE87B01E7175ED001C206C /* ForgetPWViewController.m in Sources */,
 				47AE87AA1E7147E7001C206C /* RegisterViewController2.m in Sources */,
 				4766DF5A1E90F7C2000DF343 /* UserInfoViewController.m in Sources */,
-				479040EE1E7F844E00D3B4BF /* BmobOperation.m in Sources */,
 				47E1926E1E7AC6AB003F5933 /* AddNoteViewController.m in Sources */,
 				4780E7691E86451000B60AB2 /* NoteDetailViewController.m in Sources */,
 				47D2E39C1E6BB84B00EE57A7 /* LoginViewController.m in Sources */,
 				4787E52B1EB4B59800421E84 /* SharedNoteDetailViewController.m in Sources */,
 				47D2E3991E6BB84B00EE57A7 /* AppDelegate.m in Sources */,
-				47BFB01A1EB771CA00211FB7 /* TouchIDValidate.m in Sources */,
 				47130D9A1E6BE76F00442FA4 /* RegisterViewController.m in Sources */,
 				473BA05C1E6EAE7D00AE2196 /* AllUtils.m in Sources */,
 				47FAA9581E7EB588002CDA59 /* WriteNoteViewController.m in Sources */,
 				470332DE1E8CEF4400542631 /* SettingTableViewController.m in Sources */,
+				47B8D3C81EC7F4AD003D3860 /* RegisterModel.m in Sources */,
 				4787E5281EAF9EC200421E84 /* CommunityTableViewController.m in Sources */,
+				47FD0A501EBD5F9900CAED55 /* MyBookMarksTableViewController.m in Sources */,
+				47B8D3CB1EC7FC13003D3860 /* LoginModel.m in Sources */,
 				47D2E3961E6BB84B00EE57A7 /* main.m in Sources */,
+				47B8D3CE1EC7FD03003D3860 /* ForgetPassWordModel.m in Sources */,
 				47E767A61E9685E700050056 /* TouchIDViewController.m in Sources */,
 				4753B1221E7927D50067FC04 /* NoteViewController.m in Sources */,
+				47B8D3D41EC8B4AA003D3860 /* TouchIDValidateModel.m in Sources */,
 				4753B11F1E7927300067FC04 /* HomeViewController.m in Sources */,
 				47BFB0141EB6119300211FB7 /* LockViewController.m in Sources */,
+				47FD0A531EBE078100CAED55 /* BookMarkNoteDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

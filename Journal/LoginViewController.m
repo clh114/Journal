@@ -7,11 +7,13 @@
 //
 
 #import "LoginViewController.h"
-#import "AllUtils.h"
+#import "LoginModel.h"
 
 @interface LoginViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic)LoginModel *loginmodel;
 
 @end
 
@@ -34,19 +36,7 @@
 
 //点击登录按钮
 - (IBAction)loginbt:(id)sender {
-    NSString *username = [self.usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *password = [self.passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
-    [BmobUser loginInbackgroundWithAccount:username andPassword:password block:^(BmobUser *user, NSError *error){
-        if (user) {
-            NSLog(@"login success");
-            [AllUtils jumpToViewController:@"homeViewController" contextViewController:self handler:nil];
-        } else {
-            NSLog(@"%@", error);
-            [AllUtils showPromptDialog:@"提示" andMessage:@"用户名或密码错误！" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
-        }
-    }];
-    
+    [self.loginmodel loginwithAcount:self.usernameTextField.text andPassword:self.passwordTextField.text contextViewController:self];
 }
 - (IBAction)modifyPWbt:(id)sender {
     [AllUtils jumpToViewController:@"forgetPWViewController" contextViewController:self handler:nil];

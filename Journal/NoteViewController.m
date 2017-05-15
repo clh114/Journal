@@ -10,7 +10,6 @@
 #import "NoteDetailViewController.h"
 #import "SettingTableViewController.h"
 #import "Note.h"
-#import "BmobOperation.h"
 #import "AllUtils.h"
 #import <MJRefresh.h>
 
@@ -18,22 +17,31 @@
 
 //存放笔记对象的可变数组；
 @property (strong, nonatomic) NSMutableArray *allNotesArray;
-
 @property (weak, nonatomic) IBOutlet UITableView *noteTableView;
-
 
 @end
 
 @implementation NoteViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self queryNoteByUserId:NOTE_TABLE limitCount:1000];
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    BmobUser *user = [BmobUser currentUser];
+    NSString *userId = user.objectId;
+    NSLog(@"当前用户：%@", userId);
     
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self queryNoteByUserId:NOTE_TABLE limitCount:1000];
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView reloadData];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        //异步查询
+        dispatch_async(queue, ^{
+            self.allNotesArray = [Note queryNote:NOTE_TABLE ByUserId:userId limitCount:1000];
+            NSLog(@"笔记数组的count = %lu",(unsigned long)[self.allNotesArray count]);
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView.mj_header endRefreshing];
+                [self.tableView reloadData];
+
+            });
+        });
     }];
     [header beginRefreshing];
     self.tableView.mj_header = header;
@@ -63,7 +71,7 @@
 
 #pragma mark - UITableViewDelegate
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    return true;
+    return YES;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,10 +83,26 @@
     //左滑删除；
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        //数据库删除；
-        [BmobOperation deleteNoteFromDatabase:NOTE_TABLE noteId:[[self.allNotesArray objectAtIndex:indexPath.row] valueForKey:@"noteId"]];
-        [self.allNotesArray removeObjectAtIndex:indexPath.row];//从数组中删除该值；
-        [self.noteTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        //异步删除
+        dispatch_async(queue, ^{
+            //数据库删除；
+            [Note deleteNoteFromDatabase:NOTE_TABLE noteId:[[self.allNotesArray objectAtIndex:indexPath.row] valueForKey:@"noteId"] todo:^(BOOL isSuccessful, NSError *error) {
+                if (isSuccessful) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSLog(@"删除成功");
+                        [self.allNotesArray removeObjectAtIndex:indexPath.row];//从数组中删除该值；
+                        [self.noteTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    });
+                }
+                else if (error) {
+                    NSLog(@"%@", [error description]);
+                    [AllUtils showPromptDialog:@"提示" andMessage:@"删除失败，请稍后再试" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
+                }
+            }];
+        });
+        
+        
     }
 }
 
@@ -101,47 +125,7 @@
     }
 }
 
-#pragma mark - 查询笔记
-- (void) queryNoteByUserId:(NSString*)tableName limitCount:(int)limitCount{
-    
-    BmobUser *user = [BmobUser currentUser];
-    NSString *userId = user.objectId;
-    NSLog(@"当前用户：%@", userId);
-    BmobQuery *queryNote = [BmobQuery queryWithClassName:tableName];
-    queryNote.cachePolicy = kBmobCachePolicyCacheThenNetwork;
-    [queryNote whereKey:@"userID" equalTo:userId];
-    [queryNote orderByDescending:@"updatedAt"];
-    queryNote.limit = limitCount;
-    [queryNote findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        if (error) {
-            NSLog(@"查询笔记错误");
-        } else {
-            NSLog(@"正在查询笔记。。。");
-            self.allNotesArray = [[NSMutableArray alloc]init];
-            for (BmobObject *obj in array) {
-                Note *note = [[Note alloc] init];
-                note.noteId = [obj objectForKey:@"objectId"];
-                note.userId = [obj objectForKey:@"userID"];
-                note.username = [obj objectForKey:@"username"];
-                note.noteText = [obj objectForKey:@"text"];
-                note.noteCreatedAt = [AllUtils getDateFromString:[obj objectForKey:@"createdAt"]];
-                [self.allNotesArray addObject:note];
-            }
-            
-            if (self.tempText != nil && self.tempIndexPath != nil) {
-                [[self.allNotesArray objectAtIndex:self.tempIndexPath.row] setValue:self.tempText forKey:@"noteText"];
-                for (int i = (int)self.tempIndexPath.row ; i >= 1; i--) {
-                    
-                    [self.allNotesArray exchangeObjectAtIndex:i withObjectAtIndex:i-1];
-                }
-            }
-        }
-        NSLog(@"笔记数组的count = %lu",(unsigned long)[self.allNotesArray count]);
-        
-        [self.noteTableView reloadData];
-    }];
-    
-}
+
 
 #pragma mark - 懒加载显示笔记内容
 - (NSMutableArray *)allNotesArray{

@@ -8,8 +8,7 @@
 
 #import "LockViewController.h"
 #import "AllUtils.h"
-#import "TouchIDValidate.h"
-
+#import "TouchIDValidateModel.h"
 @interface LockViewController ()
 
 @end
@@ -19,6 +18,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [TouchIDValidateModel validateTouchIDtodo:^(BOOL isSuccessful, NSError *error) {
+        if (isSuccessful) {
+            //通过发送通知跳转到主页面
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"dismissLockViewController" object:nil];
+
+        } else {
+            NSLog(@"%@",error.localizedDescription);
+        }
+    }];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jump:) name:@"dismissLockViewController" object:nil];
 }
 
@@ -30,15 +42,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -8,38 +8,46 @@
 
 #import "AppDelegate.h"
 #import "AllUtils.h"
-#import "LockViewController.h"
-#import "HomeViewController.h"
 #import <BmobSDK/Bmob.h>
-#import <LocalAuthentication/LocalAuthentication.h>
 
 @interface AppDelegate ()
+
+@property (strong, nonatomic) UIVisualEffectView *blurView;
+@property (strong, nonatomic) BmobUser *buser;
+@property (strong, nonatomic) NSUserDefaults *defaults;
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [Bmob registerWithAppKey:@"8ecde461cfbf340b723bb8b9681c1ee8"];
     [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
-    BmobUser *buser = [BmobUser currentUser];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"switch_status"] && buser) {
+    
+    self.buser = [BmobUser currentUser];
+    self.defaults = [NSUserDefaults standardUserDefaults];
+    if ([self.defaults boolForKey:@"switch_status"] && self.buser) {
+        NSLog(@"应该跳转到解锁界面");
         //跳转到解锁界面
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"presentLockViewController" object:nil];
-        [self touchIDValidate];
+        [AllUtils jumpToViewController:@"lockViewController" contextViewController:self.window.rootViewController handler:^{
+        }];
     }
     return YES;
 }
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    
+    if ([self.defaults boolForKey:@"switch_status"] && self.buser) {
+        //盖上view
+        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+        view.backgroundColor = [UIColor grayColor];
+        view.alpha = 1;
+        view.tag = 1111;
+        [[[UIApplication sharedApplication] keyWindow] addSubview:view];
+    }
 }
-
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
@@ -49,19 +57,24 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    BmobUser *buser = [BmobUser currentUser];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"switch_status"] && buser) {
+    if ([self.defaults boolForKey:@"switch_status"] && self.buser) {
+        [self remove];
+        UIViewController *topRootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        while (topRootViewController.presentedViewController)
+        {
+            topRootViewController = topRootViewController.presentedViewController;
+        }
         //跳转到解锁界面
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"presentLockViewController" object:nil];
-        [self touchIDValidate];
+        [AllUtils jumpToViewController:@"lockViewController" contextViewController:topRootViewController handler:^{
+        }];
     }
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    
+    //移除
+    [self remove];
 }
 
 
@@ -69,35 +82,22 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (void)touchIDValidate {
-    
-    //创建LAContext
-    LAContext* context = [[LAContext alloc] init];
-    NSError* error = nil;
-    NSString* result = @"请验证已有指纹";
-    
-    //首先使用canEvaluatePolicy 判断设备支持状态
-    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-        //支持指纹验证
-        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:result reply:^(BOOL success, NSError *error) {
-            if (success) {
-                //跳转到主页面
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"dismissLockViewController" object:nil];
-            }
-            else
-            {
-                NSLog(@"%@",error.localizedDescription);
-            }
-        }];
-    }
-    else
-    {
-        //不支持指纹识别，LOG出错误详情
-        NSLog(@"不支持指纹识别");
-        NSLog(@"%@",error.localizedDescription);
-    }
-    
-}
 
+- (void)remove {
+    //移除
+    NSArray* array = [[UIApplication sharedApplication] keyWindow].subviews;
+    
+    for(id view in array)
+    {
+        if ([view isKindOfClass:[UIView class]])
+        {
+            UIView* myView = view;
+            if (myView.tag == 1111)
+            {
+                [myView removeFromSuperview];
+            }
+        }
+    }
+}
 
 @end

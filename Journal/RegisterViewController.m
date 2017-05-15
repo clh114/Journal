@@ -8,14 +8,15 @@
 
 #import "RegisterViewController.h"
 #import "LoginViewController.h"
-#import "AllUtils.h"
-#import <BmobSDK/Bmob.h>
+#import "RegisterModel.h"
 
 
 @interface RegisterViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
 @property (weak, nonatomic) IBOutlet UITextField *validateCodeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (strong, nonatomic) RegisterModel *registermodel;
 
 - (IBAction)returnbt:(id)sender;
 - (IBAction)registerbt:(id)sender;
@@ -61,63 +62,13 @@
 
 //创建账户
 - (IBAction)registerbt:(id)sender {
-    NSString *smsCode = self.validateCodeTextField.text;
-    NSString *phoneNumber = self.phoneNumberTextField.text;
-    NSString *password = self.passwordTextField.text;
-    
-    if (password.length < 5) {
-        [AllUtils showPromptDialog:@"提示" andMessage:@"密码要求至少6位字符" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
-    }
-    else {
-        BmobUser *user = [[BmobUser alloc] init];
-        user.mobilePhoneNumber = phoneNumber;
-        user.password = password;
-        [user signUpOrLoginInbackgroundWithSMSCode:smsCode block:^(BOOL isSuccessful, NSError *error){
-            if (error) {
-                NSLog(@"%@", [error description]);
-                [AllUtils showPromptDialog:@"提示" andMessage:@"验证码错误！" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
-            } else {
-                [AllUtils jumpToViewController:@"registerViewController2" contextViewController:self handler:nil];
-            }
-        }];
-    }
+    [self.registermodel registerWithPhoneNumber:self.phoneNumberTextField.text andSMSCode:self.validateCodeTextField.text andPassword:self.passwordTextField.text contextViewController:self];
 }
 
 
 //获取验证码
 - (IBAction)getValidCodebt:(id)sender {
-    
-    //验证手机号是否已经注册
-    __block BOOL isRepeatPhoneNumber = false;
-    BmobQuery *query = [BmobUser query];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        if (!error) {
-            for (BmobObject *obj in array) {
-                if ([(NSString*)[obj objectForKey:@"mobilePhoneNumber"] isEqualToString:self.phoneNumberTextField.text]) {
-                    isRepeatPhoneNumber = true;
-                    break;
-                }
-            }
-        } else {
-            [AllUtils showPromptDialog:@"提示" andMessage:@"网络异常，请稍候重试！" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
-        }
-        if (isRepeatPhoneNumber) {
-            [AllUtils showPromptDialog:@"提示" andMessage:@"该手机号已经注册，请直接登录！" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
-        } else {
-            //请求验证码
-            [BmobSMS requestSMSCodeInBackgroundWithPhoneNumber:self.phoneNumberTextField.text andTemplate:@"test" resultBlock:^(int number, NSError *error){
-                if (error) {
-                    NSLog(@"%@", error);
-                    [AllUtils showPromptDialog:@"提示" andMessage:@"请输入正确的手机号码" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
-                } else {
-                    //获得smsID
-                    NSLog(@"sms ID:%d", number);
-                    [AllUtils showPromptDialog:@"提示" andMessage:@"验证码已发送，请稍等！" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
-                    
-                }
-            }];
-        }
-    }];
+    [self.registermodel getSmsCodeWithPhoneNumber:self.phoneNumberTextField.text andContextViewController:self];
 }
 
 @end

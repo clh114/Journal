@@ -7,12 +7,14 @@
 //
 
 #import "ForgetPWViewController.h"
-#import "AllUtils.h"
-#import <BmobSDK/Bmob.h>
+#import "ForgetPassWordModel.h"
 #import <IQKeyboardManager.h>
 
 @interface ForgetPWViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
+@property (strong, nonatomic) ForgetPassWordModel *forgetpasswordmodel;
+
 - (IBAction)modifyPassWordbt:(id)sender;
 - (IBAction)loginbt:(id)sender;
 
@@ -33,30 +35,7 @@
 }
 
 - (IBAction)modifyPassWordbt:(id)sender {
-    NSString *email = self.emailTF.text;
-    BmobQuery *query = [BmobUser query];
-    __block BOOL isRegistered = false;
-    if (![email isEqualToString:@""]) {
-        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-            if (!error) {
-                for (BmobObject *obj in array) {
-                    if ([(NSString*)[obj objectForKey:@"email"] isEqualToString:email]) {
-                        isRegistered = true;
-                        break;
-                    }
-                }
-            } else {
-                            [AllUtils showPromptDialog:@"提示" andMessage:@"网络异常，请稍候重试！" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
-            }
-            if (isRegistered) {
-                [BmobUser requestPasswordResetInBackgroundWithEmail:email];
-                [AllUtils showPromptDialog:@"提示" andMessage:@"已发送重置密码邮件，请查看邮箱" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
-                [AllUtils jumpToViewController:@"loginViewController" contextViewController:self handler:nil];
-            } else {
-                [AllUtils showPromptDialog:@"提示" andMessage:@"该邮箱地址未注册" OKButton:@"确定" OKButtonAction:nil cancelButton:@"" cancelButtonAction:nil contextViewController:self];
-            }
-        }];
-    }
+    [self.forgetpasswordmodel findPasswordWithEmail:self.emailTF.text contextViewController:self];
 }
 
 - (IBAction)loginbt:(id)sender {
